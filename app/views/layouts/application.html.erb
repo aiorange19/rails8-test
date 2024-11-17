@@ -18,10 +18,16 @@
     <link rel="apple-touch-icon" href="/icon.png">
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <%= javascript_importmap_tags %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
   </head>
 
   <body>
+    <% if authenticated? %>
+      <%= link_to "ログアウト", session_path, data: { turbo_method: :delete } %>
+    <% else %>
+      <%= link_to "ログイン", new_session_path %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
