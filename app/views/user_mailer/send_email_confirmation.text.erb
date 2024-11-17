@@ -1,0 +1,2 @@
+以下のリンクをクリックしてメールアドレスの認証を行ってください。
+<%= link_to "メールアドレスを確認する", confirm_email_registration_url(token: @user.confirmation_token) %>

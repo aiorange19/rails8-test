@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_11_16_053431) do
+ActiveRecord::Schema[8.0].define(version: 2024_11_17_071624) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -28,6 +28,9 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_16_053431) do
     t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "confirmation_status", default: 1, null: false
+    t.string "confirmation_token", limit: 64
+    t.datetime "expiration_date"
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
   end
 
